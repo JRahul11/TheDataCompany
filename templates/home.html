@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Home {% endblock %}
+{% block style %}
+{% endblock %}
+
+{% block content %}
+    {{request.user.email}}
+{% endblock %}

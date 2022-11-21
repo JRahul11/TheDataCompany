@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Sign In {% endblock %}
+{% block style %}
+<link href="{% static 'css/auth.css' %}" type="text/css" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+<main class="main">
+    <div class="wrapper">
+        <div class="card">
+            <div class="title">
+                <h1 class="title title-large">Create Account</h1>
+                <p class="title title-subs">Already registered? <span><a href="{% url 'user_login' %}" class="linktext">Login Here</a></span> </p>
+            </div>
+            <form class="form" method="POST" autocomplete="off">
+                {% csrf_token %}
+                <div class="form-group">
+                    {{ form.username }}
+                </div>
+                <div class="form-group">
+                    {{ form.email }}
+                </div>
+                <div class="form-group">
+                    {{ form.password }}
+                </div>
+                <div class="form-group">
+                    <a href="#" class="linktext"></a>
+                    <input type="submit" name="submit" class="input-submit" value="Sign Up">
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+{% endblock %}

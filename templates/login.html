@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load socialaccount %}
+
+{% block title %} Sign In {% endblock %}
+{% block style %}
+<link href="{% static 'css/auth.css' %}" type="text/css" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+<main class="main">
+    <div class="wrapper">
+        <div class="card">
+            <div class="title">
+                <h1 class="title title-large">Sign In</h1>
+                <p class="title title-subs">New user? <span><a href="{% url 'user_signup' %}" class="linktext">Create an
+                            account</a></span>
+                </p>
+            </div>
+            <form class="form" autocomplete="off" method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    {{ form.username }}
+                </div>
+                <div class="form-group">
+                    {{ form.password }}
+                </div>
+                <div class="form-group">
+                    <a href="#" class="linktext"></a>
+                    <input type="submit" name="submit" class="input-submit" value="Login">
+                </div>
+            </form>
+            {{ form.errors }}
+            <div class="line">
+                <span class="line-bar"></span>
+                <span class="line-text">OR</span>
+                <span class="line-bar"></span>
+            </div>
+            <div class="method">
+                <div class="method-item">
+                    <a href="{% provider_login_url 'google' %}" class="btn-action">
+                        <i class="icons icons-google fab fa-google"></i>
+                        <span>Sign in with Google Account</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}
