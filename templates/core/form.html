@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} 
+    {% if add_page %}
+        Add New TechStack
+    {% else %}
+        Update TechStack
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+<center style="margin-top:20px;">
+    {% if add_page %}
+        <h3>Add Your TechStack!</h3>
+    {% else %}
+        <h3>Update Your TechStack!</h3>
+    {% endif %}
+</center>
+<div style="margin-left:300px; margin-right:300px; margin-top: 30px;">
+    <form method="post" id="techForm" data-tech-url="{% url 'load_technologies' %}" novalidate>
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Select Technology Category</label>
+            {{ form.category }}
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Select Technology</label>
+            {{ form.technology }}
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Expertise Level</label>
+            {{ form.expertise_level }}
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Learning Medium (Eg:YouTube, Udemy etc)</label>
+            {{ form.learning_resource }}
+        </div>
+        <br>
+        <button type="submit" class="btn btn-outline-primary">Submit</button>
+    </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="{% static 'js/ajax_request.js' %}"></script>
+{% endblock %}

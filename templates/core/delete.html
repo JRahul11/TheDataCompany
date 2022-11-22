@@ -1,0 +1,14 @@
+<html>
+
+<head>
+    <title>Delete confirmation</title>
+</head>
+
+<body>
+    <form method="post">{% csrf_token %}
+        <p>Are you sure you want to delete "{{ object.technology.name }}"?</p>
+            <input type="submit" value="Confirm">
+        </form>
+</body>
+
+</html>

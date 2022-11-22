@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Home {% endblock %}
+{% block style %}
+{% endblock %}
+
+{% block content %}
+<center style="margin-top:20px;">
+    <h3> Past Records </h3>
+</center>
+<div style="margin-left:100px; margin-right:100px; margin-top: 30px;">
+    <div class="row">
+        {% for object in object_list %}
+        <div class="col-sm-4" style="margin-bottom:25px">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">{{ object.technology.name }}</h4>
+                    <p class="card-text" style="margin-top:15px;">Category: {{ object.category }}</p>
+                    <p class="card-text">Rate: {{ object.expertise_level }}</p>
+                    <p class="card-text">Learning Source: {{ object.learning_resource }}</p>
+                    <a href="{% url 'update_techstack' object.id %}" class="btn btn-primary">Update</a>
+                    <a href="{% url 'delete_techstack' object.id %}" class="btn btn-danger" style="margin-left:10px;">Delete</a>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <center style="margin-top:50px;"><h4>No previous records found. <a href="{% url 'add_techstack' %}" style="text-decoration:none;">Click here</a> to add a new record.</h4></center>
+        {% endfor %}
+    </div>
+</div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+{% endblock %}
