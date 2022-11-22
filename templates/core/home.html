@@ -19,8 +19,8 @@
                     <p class="card-text" style="margin-top:15px;">Category: {{ object.category }}</p>
                     <p class="card-text">Rate: {{ object.expertise_level }}</p>
                     <p class="card-text">Learning Source: {{ object.learning_resource }}</p>
-                    <a href="{% url 'update_techstack' object.id %}" class="btn btn-primary">Update</a>
-                    <a href="{% url 'delete_techstack' object.id %}" class="btn btn-danger" style="margin-left:10px;">Delete</a>
+                    <a href="{% url 'update_techstack' object.id %}" class="btn btn-primary" style="margin-right:10px;">Update</a>
+                    <a href="{% url 'delete_techstack' object.id %}" class="btn btn-danger">Delete</a>
                 </div>
             </div>
         </div>

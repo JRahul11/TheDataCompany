@@ -23,11 +23,14 @@
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup" style="margin-left: 20px;">
-                <div class="navbar-nav">
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav" style="margin-left: 20px;">
                     <a class="nav-link" href="{% url 'add_techstack' %}">Add TechStack</a>
                 </div>
-                <div class="navbar-nav">
+                <div class="navbar-nav" style="margin-left: 20px;">
+                    <a class="nav-link" href="{% url 'home_page' %}">View Records</a>
+                </div>
+                <div class="navbar-nav" style="margin-left: 20px;">
                     <a class="nav-link" href="{% url 'user_logout' %}">Logout</a>
                 </div>
             </div>
@@ -39,9 +42,9 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup" style="margin-left: 20px;">
                 <div class="navbar-nav">
-                    <a class="nav-link" href="{% url 'user_login' %}">Login</a>
-                    <a class="nav-link" href="{% url 'user_signup' %}">Register</a>
-                    <a class="nav-link" href="{% provider_login_url 'google' %}">Sign In with Google</a>
+                    <a class="nav-link" href="{% url 'user_login' %}" style="margin-left: 20px;">Login</a>
+                    <a class="nav-link" href="{% url 'user_signup' %}" style="margin-left: 20px;">Register</a>
+                    <a class="nav-link" href="{% provider_login_url 'google' %}" style="margin-left: 20px;">Sign In with Google</a>
                 </div>
             </div>
             {% endif %}
