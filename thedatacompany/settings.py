@@ -8,9 +8,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 load_dotenv(os.path.join(BASE_DIR, ".env"))
 
-SECRET_KEY = os.environ["SECRET_KEY"]
-DEBUG = os.environ["DEBUG"]
-ALLOWED_HOSTS = os.environ["ALLOWED_HOSTS"]
+SECRET_KEY = os.getenv("SECRET_KEY")
+DEBUG = os.getenv("DEBUG")
+ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS")
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -69,7 +69,7 @@ WSGI_APPLICATION = 'thedatacompany.wsgi.application'
 # }
 
 # Hosted Postgres Database
-DATABASE_URL = os.environ["DATABASE_URL"]
+DATABASE_URL = os.getenv("DATABASE_URL")
 DATABASES = {
     'default': dj_database_url.config(default=DATABASE_URL, conn_max_age=1800),
 }
